@@ -6,7 +6,8 @@ import {Provider} from 'react-redux';
 import store from '../store'
 import {Provider as AlertProvider} from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
-import Alerts from './layout/Alerts'
+import Alerts from './layout/Alerts';
+import Searcher from './leads/Searcher';
 
 
 const alertOptions = {
@@ -16,6 +17,7 @@ const alertOptions = {
 
 class App extends Component{
     render() {
+
         return (
             
             <Provider store={store}>
@@ -23,6 +25,7 @@ class App extends Component{
 
             <Fragment>
             <Header/>
+                <Searcher/>
                 <Alerts/>
                 <div className="container-fluid">
                 <Dashboard/>

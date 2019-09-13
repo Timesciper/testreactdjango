@@ -1,4 +1,4 @@
-import { GET_LEADS, DELETE_LEAD, ADD_LEAD, GET_ERRORS } from "./types";
+import { GET_LEADS, DELETE_LEAD, ADD_LEAD, GET_ERRORS, FIND_LEADS } from "./types";
 import axios from 'axios';
 import { createMessage } from "./messages";
 
@@ -13,13 +13,14 @@ export const getLeads = () => dispatch => {
 };
 
 export const deleteLead = (id) => dispatch => {
-    axios.delete('/api/leads/'+id).then(res => {
+    axios.delete('/api/leads/'+id).then(
+        res => {
                 dispatch(createMessage({leadDeleted: "Lead Deleted"}));
 
-        dispatch({
-            type: DELETE_LEAD,
-            payload: id
-        })
+                dispatch({
+                type: DELETE_LEAD,
+                payload: id
+                })
     }).catch(err => console.log(err));
 };
 
@@ -47,3 +48,14 @@ export const addLead = (lead) => dispatch => {
     });
 };
 
+
+export const findLeads = (id) => dispatch => {
+    axios.get('/api/leads/' ).then(
+        res => {
+            dispatch({
+                type: FIND_LEADS,
+                payload: id
+            })
+        }
+    )
+};

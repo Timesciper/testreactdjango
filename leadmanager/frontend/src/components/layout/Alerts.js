@@ -27,7 +27,7 @@ export class Alerts extends Component {
         }
         if (message !== prevProps.message){
             if (message.leadDeleted){
-                alert.success(message.leadDeleted)
+                alert.show(message.leadDeleted)
             }
             if (message.addLead){
                 alert.success(message.addLead)
