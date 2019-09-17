@@ -8,6 +8,7 @@ import {Provider as AlertProvider} from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 import Alerts from './layout/Alerts';
 import Searcher from './leads/Searcher';
+import Actual from './leads/Actual';
 
 
 const alertOptions = {
@@ -27,8 +28,8 @@ class App extends Component{
             <Header/>
                 <Searcher/>
                 <Alerts/>
+                <Actual/>
                 <div className="container-fluid">
-                <Dashboard/>
                 </div>
             </Fragment>
                 </AlertProvider>

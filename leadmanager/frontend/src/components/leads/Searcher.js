@@ -8,17 +8,24 @@ import { findLeads, getLeads } from '../../actions/leads';
 export class Searcher extends Component {
     static propTypes ={
         leads: PropTypes.array.isRequired,
-        findLeads: PropTypes.func.isRequired
+        findLeads: PropTypes.func.isRequired,
+        getLeads: PropTypes.func.isRequired
     };
     state ={
         value: ''
     };
+    componentDidMount(){
+        this.props.getLeads();
+    }
     onChange = e => this.setState({
         [e.target.name]: e.target.value
     });
     onClick = e => {
         e.preventDefault();
         const {value} = this.state;
+        const helper = document.getElementsByClassName("n3__sort-switcher")[0];
+        helper.click();
+
         this.props.getLeads();
         this.props.findLeads(value);
         this.setState({

@@ -13,7 +13,6 @@ export class Leads extends Component{
     };
 
     componentDidMount(){
-        this.props.getLeads();
     }
     render() {
         return (
